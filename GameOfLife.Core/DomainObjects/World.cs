@@ -12,6 +12,7 @@ namespace GameOfLife.Core.DomainObjects
             {
                 throw new ArgumentOutOfRangeException($"{nameof(heightInUnits)} should be greater then 100 units");
             }
+
             _heightInUnits = heightInUnits;
         }
 

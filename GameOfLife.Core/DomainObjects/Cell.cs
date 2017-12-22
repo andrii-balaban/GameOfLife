@@ -1,18 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameOfLife.Core.DomainObjects
 {
     public class Cell
     {
-        private int _cellSize;
+        private int _x;
+        private int _y;
 
-        public Cell(int cellSize = 2)
+        public Cell(int x, int y)
         {
-            _cellSize = cellSize;
+            if (x < 0)
+            {
+                throw new ArgumentOutOfRangeException($"{nameof(x)} should be positive");
+            }
+
+            if (y < 0)
+            {
+                throw new ArgumentOutOfRangeException($"{nameof(y)} should be positive");
+            }
+
+            _x = x;
+            _y = y;
         }
     }
 }
