@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GameOfLife.Core.DomainObjects;
 using GameOfLife.ViewModels;
@@ -27,19 +17,52 @@ namespace GameOfLife
             InitializeComponent();
         }
 
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
-        }
-
         public void SetupWorld(World world)
         {
-            DataContext = new WorldViewModel(world);
+            DataContext = new WorldViewModel(world, this);
         }
 
         public void Run()
         {
             Show();
+        }
+
+        public void Draw(World world)
+        {
+            var filed = world.GetFiled();
+
+            for (int xIndex = 0; xIndex < world.GetWidth(); xIndex++)
+            {
+                for (int yIndex = 0; yIndex < world.GetHeight(); yIndex++)
+                {
+                    DrawCell(filed[xIndex, yIndex]);
+                }
+            }
+        }
+
+        private void DrawCell(Cell cell)
+        {
+            Rectangle rectangle = GetCellRectangle(cell);
+            WorldCanvas.Children.Add(rectangle);
+        }
+
+        private static Rectangle GetCellRectangle(Cell cell)
+        {
+            Rectangle rectangle = new Rectangle
+            {
+                Width = 3,
+                Height = 3,
+                Fill = new SolidColorBrush(GetCellColor(cell))
+            };
+
+            Canvas.SetLeft(rectangle, cell.X * 3);
+            Canvas.SetTop(rectangle, cell.Y * 3);
+            return rectangle;
+        }
+
+        private static Color GetCellColor(Cell cell)
+        {
+            return cell.IsAlive() ? Color.FromRgb(255, 0, 0) : Color.FromRgb(255, 255, 255);
         }
     }
 }

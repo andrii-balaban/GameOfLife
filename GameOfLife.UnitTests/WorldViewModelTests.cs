@@ -16,7 +16,7 @@ namespace GameOfLife.UnitTests
             World world = CreateWorld();
 
             // Act
-            Action act = () => new WorldViewModel(world);
+            Action act = () => CreateWorldViewModel(world);
 
             // Assert
             act.ShouldNotThrow();
@@ -29,7 +29,7 @@ namespace GameOfLife.UnitTests
             World world = null;
 
             // Act
-            Action act = () => new WorldViewModel(world);
+            Action act = () => CreateWorldViewModel(world);
 
             // Assert
             act.ShouldThrow<ArgumentNullException>();
@@ -40,13 +40,13 @@ namespace GameOfLife.UnitTests
         {
             // Arrange
             World world = CreateWorld();
-            WorldViewModel viewModel = new WorldViewModel(world);
+            WorldViewModel viewModel = CreateWorldViewModel(world);
 
             // Act
             int height = viewModel.Height;
 
             // Assert
-            height.Should().Be(200);
+            height.Should().Be(300);
         }
 
         [Test]
@@ -54,18 +54,42 @@ namespace GameOfLife.UnitTests
         {
             // Arrange
             World world = CreateWorld();
-            WorldViewModel viewModel = new WorldViewModel(world);
+            WorldViewModel viewModel = CreateWorldViewModel(world);
 
             // Act
             int width = viewModel.Width;
 
             // Assert
-            width.Should().Be(200);
+            width.Should().Be(300);
         }
 
         private static World CreateWorld()
         {
             return new World(100);
+        }
+
+
+        private static WorldViewModel CreateWorldViewModel(World world)
+        {
+            return new WorldViewModel(world, new TestView());
+        }
+
+        private class TestView : IWorldView
+        {
+            public void SetupWorld(World world)
+            {
+                
+            }
+
+            public void Run()
+            {
+               
+            }
+
+            public void Draw(World world)
+            {
+                
+            }
         }
     }
 }

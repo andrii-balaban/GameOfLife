@@ -22,7 +22,7 @@
         </Border>
 
         <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Margin="1" CornerRadius="2">
-            <Canvas x:Name="World" VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray"
+            <Canvas x:Name="WorldCanvas" VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray"
                     Height="{Binding Height}" Width="{Binding Width}">
 
             </Canvas>
