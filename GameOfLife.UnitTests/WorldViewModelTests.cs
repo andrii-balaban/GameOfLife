@@ -46,7 +46,7 @@ namespace GameOfLife.UnitTests
             int height = viewModel.Height;
 
             // Assert
-            height.Should().Be(100);
+            height.Should().Be(200);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace GameOfLife.UnitTests
             int width = viewModel.Width;
 
             // Assert
-            width.Should().Be(100);
+            width.Should().Be(200);
         }
 
         private static World CreateWorld()

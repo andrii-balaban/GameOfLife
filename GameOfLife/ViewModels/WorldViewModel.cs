@@ -5,15 +5,16 @@ namespace GameOfLife.ViewModels
 {
     public class WorldViewModel
     {
-        private World _world;
+        private const int DefaultCellSize = 2;
+        private readonly World _world;
 
         public WorldViewModel(World world)
         {
             _world = world ?? throw new ArgumentNullException(nameof(world));
         }
 
-        public int Height => _world.GetHeight();
+        public int Height => _world.GetHeight() * DefaultCellSize;
 
-        public int Width => _world.GetWidth();
+        public int Width => _world.GetWidth() * DefaultCellSize;
     }
 }
