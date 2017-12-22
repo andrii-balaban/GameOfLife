@@ -13,7 +13,7 @@ namespace GameOfLife.UnitTests
         public void Ctor_ShouldNotThrowException()
         {
             // Arrange
-            World world = new World(100, 100);
+            World world = CreateWorld();
 
             // Act
             Action act = () => new WorldViewModel(world);
@@ -39,7 +39,7 @@ namespace GameOfLife.UnitTests
         public void Height_ShouldReturnWorldHeight()
         {
             // Arrange
-            World world = new World(100, 200);
+            World world = CreateWorld();
             WorldViewModel viewModel = new WorldViewModel(world);
 
             // Act
@@ -53,14 +53,19 @@ namespace GameOfLife.UnitTests
         public void Width_ShouldReturnWorldWidth()
         {
             // Arrange
-            World world = new World(100, 200);
+            World world = CreateWorld();
             WorldViewModel viewModel = new WorldViewModel(world);
 
             // Act
             int width = viewModel.Width;
 
             // Assert
-            width.Should().Be(200);
+            width.Should().Be(100);
+        }
+
+        private static World CreateWorld()
+        {
+            return new World(100);
         }
     }
 }

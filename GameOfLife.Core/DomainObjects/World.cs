@@ -5,22 +5,14 @@ namespace GameOfLife.Core.DomainObjects
     public class World
     {
         private readonly int _heightInUnits;
-        private readonly int _widthInUnits;
 
-        public World(int heightInUnits, int widthInUnits)
+        public World(int heightInUnits)
         {
             if (heightInUnits < 100)
             {
                 throw new ArgumentOutOfRangeException($"{nameof(heightInUnits)} should be greater then 100 units");
             }
-
-            if (widthInUnits < 100)
-            {
-                throw new ArgumentOutOfRangeException($"{nameof(widthInUnits)} should be greater then 100 units");
-            }
-
             _heightInUnits = heightInUnits;
-            _widthInUnits = widthInUnits;
         }
 
         public int GetHeight()
@@ -30,7 +22,7 @@ namespace GameOfLife.Core.DomainObjects
 
         public int GetWidth()
         {
-            return _widthInUnits;
+            return GetHeight();
         }
     }
 }
