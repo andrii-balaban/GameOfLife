@@ -14,7 +14,7 @@ namespace GameOfLife.Core.DomainObjects
                 throw new ArgumentOutOfRangeException($"{nameof(heightInUnits)} should be greater then 100 units");
             }
 
-            if (_widthInUnits < 100)
+            if (widthInUnits < 100)
             {
                 throw new ArgumentOutOfRangeException($"{nameof(widthInUnits)} should be greater then 100 units");
             }
