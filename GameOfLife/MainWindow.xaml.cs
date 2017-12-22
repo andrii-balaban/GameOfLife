@@ -12,13 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameOfLife.Core.DomainObjects;
+using GameOfLife.ViewModels;
 
 namespace GameOfLife
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IWorldView
     {
         public MainWindow()
         {
@@ -28,6 +30,16 @@ namespace GameOfLife
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
+        }
+
+        public void SetupWorld(World world)
+        {
+            DataContext = new WorldViewModel(world);
+        }
+
+        public void Run()
+        {
+            Show();
         }
     }
 }
