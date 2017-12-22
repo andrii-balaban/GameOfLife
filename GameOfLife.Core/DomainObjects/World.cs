@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameOfLife
+namespace GameOfLife.Core.DomainObjects
 {
     public class World
     {
