@@ -4,21 +4,38 @@ namespace GameOfLife.Core.DomainObjects
 {
     public class World
     {
-        private readonly int _heightInUnits;
+        private readonly int _size;
 
-        public World(int heightInUnits)
+        private Cell[,] _field;
+
+        public World(int size)
         {
-            if (heightInUnits < 100)
+            if (size < 100)
             {
-                throw new ArgumentOutOfRangeException($"{nameof(heightInUnits)} should be greater then 100 units");
+                throw new ArgumentOutOfRangeException($"{nameof(size)} should be greater then 100 units");
             }
 
-            _heightInUnits = heightInUnits;
+            _size = size;
         }
+
+        public void Initialize()
+        {
+            _field = new Cell[_size, _size];
+
+            for (int xIndex = 0; xIndex < _size; xIndex++)
+            {
+                for (int yIndex = 0; yIndex < _size; yIndex++)
+                {
+                    _field[xIndex, yIndex] = new Cell(xIndex, yIndex);
+                }
+            }
+        }
+
+        public Cell[,] GetFiled() => _field;
 
         public int GetHeight()
         {
-            return _heightInUnits;
+            return _size;
         }
 
         public int GetWidth()
