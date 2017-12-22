@@ -20,7 +20,7 @@ namespace GameOfLife
         {
             var worldView = _container.Resolve<IWorldView>();
 
-            worldView.SetupWorld(new World(100, 100));
+            worldView.SetupWorld(new World(500, 500));
 
             worldView.Run();
 

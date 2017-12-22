@@ -34,5 +34,33 @@ namespace GameOfLife.UnitTests
             // Assert
             act.ShouldThrow<ArgumentNullException>();
         }
+
+        [Test]
+        public void Height_ShouldReturnWorldHeight()
+        {
+            // Arrange
+            World world = new World(100, 200);
+            WorldViewModel viewModel = new WorldViewModel(world);
+
+            // Act
+            int height = viewModel.Height;
+
+            // Assert
+            height.Should().Be(100);
+        }
+
+        [Test]
+        public void Width_ShouldReturnWorldWidth()
+        {
+            // Arrange
+            World world = new World(100, 200);
+            WorldViewModel viewModel = new WorldViewModel(world);
+
+            // Act
+            int width = viewModel.Width;
+
+            // Assert
+            width.Should().Be(200);
+        }
     }
 }

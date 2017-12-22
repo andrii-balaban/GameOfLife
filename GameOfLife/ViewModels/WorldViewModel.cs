@@ -11,5 +11,9 @@ namespace GameOfLife.ViewModels
         {
             _world = world ?? throw new ArgumentNullException(nameof(world));
         }
+
+        public int Height => _world.GetHeight();
+
+        public int Width => _world.GetWidth();
     }
 }

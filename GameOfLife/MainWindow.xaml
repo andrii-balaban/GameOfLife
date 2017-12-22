@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterOwner"
-        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
         Background="White"
-        Title="MainWindow" Height="350" Width="525">
+        SizeToContent="WidthAndHeight"
+        Title="Game Of Life">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,7 +22,8 @@
         </Border>
 
         <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Margin="1" CornerRadius="2">
-            <Canvas x:Name="World" VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray">
+            <Canvas x:Name="World" VerticalAlignment="Center" HorizontalAlignment="Center" Background="LightGray"
+                    Height="{Binding Height}" Width="{Binding Width}">
 
             </Canvas>
         </Border>

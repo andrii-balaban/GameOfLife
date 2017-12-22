@@ -22,5 +22,15 @@ namespace GameOfLife.Core.DomainObjects
             _heightInUnits = heightInUnits;
             _widthInUnits = widthInUnits;
         }
+
+        public int GetHeight()
+        {
+            return _heightInUnits;
+        }
+
+        public int GetWidth()
+        {
+            return _widthInUnits;
+        }
     }
 }
