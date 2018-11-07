@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         Background="White"
         SizeToContent="WidthAndHeight"
-        Title="Game Of Life">
+        Title="For Testing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
